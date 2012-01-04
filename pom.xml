@@ -34,7 +34,7 @@
 
   <groupId>org.hudsonci.plugins</groupId>
   <artifactId>dependency-viewer</artifactId>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
   <packaging>hpi</packaging>
 
   <name>Dependency Viewer</name> 
