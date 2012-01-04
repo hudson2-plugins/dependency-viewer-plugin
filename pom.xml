@@ -39,7 +39,7 @@
 
   <name>Dependency Viewer</name> 
   <url>http://wiki.hudson-ci.org/display/HUDSON/Dependency+Viewew+Plugin</url>
-  
+    
   <scm>
     <connection>scm:git:git://github.com/hudson-plugins/dependency-viewer-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:hudson-plugins/dependency-viewer-plugin.git</developerConnection>
