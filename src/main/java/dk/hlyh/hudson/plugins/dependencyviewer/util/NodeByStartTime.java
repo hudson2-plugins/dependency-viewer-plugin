@@ -19,9 +19,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dk.hlyh.hudson.plugins.dependencyviewer.impl.sorter;
+package dk.hlyh.hudson.plugins.dependencyviewer.util;
 
-import dk.hlyh.hudson.plugins.dependencyviewer.impl.Node;
+import dk.hlyh.hudson.plugins.dependencyviewer.dependencies.Node;
 import java.util.Comparator;
 import java.util.Date;
 

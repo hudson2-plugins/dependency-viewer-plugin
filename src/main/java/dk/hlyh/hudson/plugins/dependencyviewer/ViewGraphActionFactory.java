@@ -39,7 +39,7 @@ public class ViewGraphActionFactory extends TransientViewActionFactory {
 
     @Override
     public List<Action> createFor(View v) {
-        return Collections.<Action>singletonList(new ViewGraphAction(v));
+        return Collections.<Action>singletonList(new DependencyAction(v));
     }
 
 }

@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dk.hlyh.hudson.plugins.dependencyviewer.impl;
+package dk.hlyh.hudson.plugins.dependencyviewer.dependencies;
 
 public class Link  {
   

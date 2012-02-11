@@ -19,34 +19,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dk.hlyh.hudson.plugins.dependencyviewer.impl;
+package dk.hlyh.hudson.plugins.dependencyviewer.dependencies;
 
-import hudson.model.AbstractBuild;
-import hudson.model.AbstractProject;
-import hudson.model.Cause;
-import hudson.model.DependencyGraph;
 import hudson.model.DependencyGraph.Dependency;
-import hudson.model.Fingerprint;
 import hudson.model.Fingerprint.RangeSet;
-import hudson.model.Hudson;
+import hudson.model.*;
 import hudson.security.Permission;
-import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.logging.Logger;
-import org.acegisecurity.providers.dao.UserCache;
 
-/**
+/*
  *
  * @author Henrik Lynggaard
  */
 public class GraphBuilder {
 
-  private static final Logger LOGGER = Logger.getLogger("dependency-viewer");
   private AbstractBuild topBuild;
   private final Set<AbstractBuild> visitedBuilds = new HashSet<AbstractBuild>();
   private final Set<AbstractProject> visitedProjects = new HashSet<AbstractProject>();
@@ -235,7 +225,7 @@ public class GraphBuilder {
     node.setBuildStart(new Date(build.getTimeInMillis()));
     node.setBuildEnd(new Date(build.getTimeInMillis()+build.getDuration()));
     node.setDurationMillis(build.getDuration());
-
+    node.setStatus(Node.Status.Completed);
     
     return node;
   }

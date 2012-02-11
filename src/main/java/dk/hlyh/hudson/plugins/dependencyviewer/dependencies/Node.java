@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dk.hlyh.hudson.plugins.dependencyviewer.impl;
+package dk.hlyh.hudson.plugins.dependencyviewer.dependencies;
 
 import hudson.model.Result;
 import java.util.Date;
@@ -33,14 +33,6 @@ public class Node {
   private String url;
   private String duration;
   private long durationMillis;
-
-  public long getDurationMillis() {
-    return durationMillis;
-  }
-
-  public void setDurationMillis(long durationMillis) {
-    this.durationMillis = durationMillis;
-  }
   private Result result;
   private Status status;
   private Date buildStart;
@@ -110,6 +102,13 @@ public class Node {
     this.status = status;
   }
 
+  public long getDurationMillis() {
+    return durationMillis;
+  }
+
+  public void setDurationMillis(long durationMillis) {
+    this.durationMillis = durationMillis;
+  }  
 
 
   public Date getBuildEnd() {

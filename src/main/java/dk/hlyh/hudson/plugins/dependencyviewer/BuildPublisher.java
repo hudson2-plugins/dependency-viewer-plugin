@@ -38,13 +38,13 @@ public class BuildPublisher extends Notifier {
 
   @Override
   public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener) {
-    build.getActions().add(new ProjectGraphAction(build.getProject(), build));
+    build.getActions().add(new DependencyAction(build.getProject(), build));
     return true;
   }
 
   @Override
   public Action getProjectAction(Project project) {
-    return new ProjectGraphAction(project,null);
+    return new DependencyAction(project,null);
   }
 
   public BuildStepMonitor getRequiredMonitorService() {

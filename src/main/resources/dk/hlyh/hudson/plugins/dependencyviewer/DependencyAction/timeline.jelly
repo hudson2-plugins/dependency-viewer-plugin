@@ -3,41 +3,11 @@
   <l:layout title="${it.title}">
     <st:include it="${it.parentObject}" page="sidepanel.jelly" />
     <l:main-panel>
-      <h1>${%Timeline}</h1>
-      <p>
-        <a href="index">${%Switch to graph}</a>
-      </p>            
+      <st:include page="header.jelly" />          
       <div id="timeline" style="height:300px; border:1px solid black;" />
       <h1>${%Details}</h1>
-      <j:invoke var="nodes" on="${it}" method="getNodes" />
-      <table class="pane">
-        <tr>
-          <td class="pane-header" initialSortDir="down" align="left">Name</td>
-          <td class="pane-header" align="left">Started</td>
-          <td class="pane-header" align="left">Ended</td>
-          <td class="pane-header" align="left">Result</td>
-          <td class="pane-header" align="left">Duration</td>
-        </tr>
-        <j:forEach var="node" items="${nodes}">
-          <tr>
-            <td align="left">
-              <a href="${node.url}">${node.name}</a>
-            </td>
-            <j:choose>
-              <j:when test="${node.buildStart != null}">
-                <td align="left"><i:formatDate value="${node.buildStart}" type="time" dateStyle="medium" timeStyle="medium"/></td>        
-                <td align="left"><i:formatDate value="${node.buildEnd}" type="time" dateStyle="medium" timeStyle="medium"/></td>                
-              </j:when>
-              <j:otherwise>
-                <td>---</td>
-                <td>---</td>
-              </j:otherwise>
-            </j:choose>
-            <td align="left">${node.result}</td>
-            <td align="left">${node.duration}</td>
-          </tr>            
-        </j:forEach>
-      </table>          
+      <st:include page="details.jelly" />
+
       <link rel="stylesheet" type="text/css" href="${resURL}/scripts/timeline_2.3.2/timeline_ajax/styles/graphics.css" />
       <link rel="stylesheet" type="text/css" href="${resURL}/scripts/timeline_2.3.2/timeline_js/timeline-bundle.css" />             
       <script type="text/javascript">
@@ -61,8 +31,8 @@
               eventSource:    eventSource,         
               width:          "100%", 
               theme:          theme1,
-              intervalUnit:   Timeline.DateTime.MINUTE, 
-              intervalPixels: 10
+              intervalUnit:   Timeline.DateTime.HOUR, 
+              intervalPixels: 240
             })
           ];
           var tlElem = document.getElementById("timeline");

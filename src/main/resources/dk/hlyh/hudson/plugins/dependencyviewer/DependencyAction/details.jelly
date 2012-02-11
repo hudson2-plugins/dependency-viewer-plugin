@@ -1,0 +1,41 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:sv="/lib/sectioned_view" xmlns:f="/lib/form" xmlns:i="jelly:fmt">
+  <j:invoke var="nodes" on="${it}" method="getNodes" />
+  <j:invoke var="buildDisplay" on="${it}" method="isBuildDisplay" />
+  <table class="pane">
+    <tr>
+      <td class="pane-header" initialSortDir="down" align="left">Name</td>
+      <j:if test="${buildDisplay}">
+        <td class="pane-header" align="left">Started</td>
+        <td class="pane-header" align="left">Ended</td>  
+        <td class="pane-header" align="left">Result</td>
+      </j:if>            
+      <td class="pane-header" align="left">Duration</td>
+    </tr>
+    <j:forEach var="node" items="${nodes}">
+      <tr>
+        <td align="left"><a href="${node.url}">${node.name}</a></td>
+        <j:if test="${buildDisplay}">
+          <j:choose>
+            <j:when test="${node.buildStart != null}">
+              <td align="left"><i:formatDate value="${node.buildStart}" type="time" dateStyle="medium" timeStyle="medium"/></td>        
+              <td align="left"><i:formatDate value="${node.buildEnd}" type="time" dateStyle="medium" timeStyle="medium"/></td>              
+            </j:when>
+            <j:otherwise>
+              <td>---</td>
+              <td>---</td>
+            </j:otherwise>
+          </j:choose>
+          <j:choose>
+            <j:when  test="${node.status == 'Completed'}" >
+              <td align="left">${node.result}</td>
+            </j:when>                      
+            <j:otherwise>
+                <td align="left">${node.status}</td>
+            </j:otherwise>
+          </j:choose>
+        </j:if>
+        <td align="left">${node.duration}</td>        
+      </tr>            
+    </j:forEach>
+  </table>      
+</j:jelly>

@@ -1,0 +1,13 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:sv="/lib/sectioned_view" xmlns:f="/lib/form" xmlns:i="jelly:fmt">
+  <j:invoke var="buildDisplay" on="${it}" method="isBuildDisplay" />
+  <h1>${%Dependency Viewer}</h1>
+  <table>
+    <tr>
+      <td><a href="index">${%Text}</a></td>
+      <td><a href="diagram">${%Diagram}</a></td>
+      <j:if test="${buildDisplay}">
+        <td><a href="timeline">${%Timeline}</a></td>
+      </j:if>
+    </tr>
+  </table>
+</j:jelly>

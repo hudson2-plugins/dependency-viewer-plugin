@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010 Stefan Wolf
+ * Copyright (c) 2011 Henrik Lynggaard
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,28 +19,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package dk.hlyh.hudson.plugins.dependencyviewer.impl;
+package dk.hlyh.hudson.plugins.dependencyviewer.util;
 
-import java.util.HashMap;
-import java.util.Map;
+import dk.hlyh.hudson.plugins.dependencyviewer.dependencies.Node;
+import java.util.Comparator;
 
-public class SupportedImageType {
-  
-  public static final Map<String, SupportedImageType> supportedTypes;
+public class NodeByName implements  Comparator<Node> {
 
-  static {
-    supportedTypes = new HashMap<String, SupportedImageType>();
-    supportedTypes.put("png", new SupportedImageType("image/png", "png"));
-    supportedTypes.put("svg", new SupportedImageType("image/svg", "svg"));
-    supportedTypes.put("map", new SupportedImageType("image/cmapx", "cmapx"));
-    supportedTypes.put("gv", new SupportedImageType("text/plain", "gv"));
-  }  
-  
-  public final String contentType;
-  public final String dotType;
-
-  SupportedImageType(String contentType, String dotType) {
-    this.contentType = contentType;
-    this.dotType = dotType;
+  public int compare(Node o1, Node o2) {
+    return o1.getName().compareTo(o2.getName());
   }
+
 }

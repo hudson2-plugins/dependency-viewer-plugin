@@ -1,0 +1,15 @@
+
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:sv="/lib/sectioned_view" xmlns:f="/lib/form" xmlns:i="jelly:fmt">
+  <l:layout title="${it.title}">
+    <st:include it="${it.parentObject}" page="sidepanel.jelly" />
+    <l:main-panel>
+      <st:include page="header.jelly" />
+      <img src="graph.png" lazymap="graph.map"/>
+      <p>
+        <a href="source.gv">${%Graph in graphviz format}</a>
+      </p> 
+      <h1>${%Details}</h1>
+      <st:include page="details.jelly" />
+    </l:main-panel>
+  </l:layout>
+</j:jelly>
