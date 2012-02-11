@@ -37,7 +37,7 @@
   <version>1.1-SNAPSHOT</version>
   <packaging>hpi</packaging>
 
-  <name>Dependency Viewer</name> 
+  <name>Hudson Dependency Viewer Plugin</name> 
   <url>http://wiki.hudson-ci.org/display/HUDSON/Dependency+Viewew+Plugin</url>
     
   <scm>
@@ -65,5 +65,6 @@
   </developers>     
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <hudson.hint.displayName>Dependency Viewer</hudson.hint.displayName>
   </properties>  
 </project>
